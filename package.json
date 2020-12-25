@@ -1,0 +1,37 @@
+{
+	"name": "flp",
+	"version": "0.0.1",
+	"private": true,
+	"description": "FLP",
+	"keywords": [
+		"ui5",
+		"openui5",
+		"sapui5"
+	],
+	"main": "flpModule/flpSandbox.html",
+	"scripts": {
+		"start": "fiori run --open flpModule/flpSandbox.html",
+		"start-local": "fiori run --config ./ui5-local.yaml --open  flpModule/flpSandbox.html",
+		"unit-tests": "fiori run --open test/unit/unitTests.qunit.html",
+		"int-tests": "fiori run --open test/integration/opaTests.qunit.html",
+		"build": "rimraf dist && ui5 build -a --include-task=generateManifestBundle generateCachebusterInfo",
+		"deploy": "fiori add deploy-config"
+	},
+	"remarkConfig": {
+		"plugins": [
+			"remark-preset-lint-consistent"
+		]
+	},
+	"devDependencies": {
+		"rimraf": "3.0.0",
+		"@ui5/cli": "2.0.3",
+		"@ui5/fs": "2.0.1",
+		"@ui5/logger": "2.0.0",
+		"@sap/ux-ui5-tooling": "1"
+	},
+	"ui5": {
+		"dependencies": [
+			"@sap/ux-ui5-tooling"
+		]
+	}
+}
